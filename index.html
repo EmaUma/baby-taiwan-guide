@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>美國出生寶寶入籍台灣 — Step 5-8 流程指南</title>
+<title>美國出生寶寶入籍台灣 — 完整流程指南</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -46,11 +46,33 @@
 
   .step-nav {
     display: flex;
-    justify-content: center;
-    gap: 0;
+    flex-direction: column;
+    gap: 8px;
     padding: 0 16px;
     margin-top: -18px;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
   }
+  .nav-group {
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+  .nav-group-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+    background: var(--accent);
+    padding: 4px 8px;
+    border-radius: 6px;
+    white-space: nowrap;
+    min-width: 52px;
+    text-align: center;
+    margin-right: 6px;
+  }
+  .nav-group-label.tw { background: #c4574b; }
+  .nav-group-btns { display: flex; flex: 1; gap: 0; }
   .step-btn {
     flex: 1;
     max-width: 90px;
@@ -306,65 +328,275 @@
 <div class="header">
   <div class="header-icon">🍼</div>
   <h1>美國出生寶寶入籍台灣</h1>
-  <p>Step 5 – 8 完整流程指南</p>
+  <p>Step 1 – 8 完整流程指南</p>
 </div>
 
 <div class="step-nav">
-  <button class="step-btn active" onclick="showStep(0)">
-    <span class="btn-icon">📄</span>
-    <span class="btn-label">Step 5</span>
-  </button>
-  <button class="step-btn" onclick="showStep(1)">
-    <span class="btn-icon">✉️</span>
-    <span class="btn-label">Step 6</span>
-  </button>
-  <button class="step-btn" onclick="showStep(2)">
-    <span class="btn-icon">🏛️</span>
-    <span class="btn-label">Step 7</span>
-  </button>
-  <button class="step-btn" onclick="showStep(3)">
-    <span class="btn-icon">🛂</span>
-    <span class="btn-label">Step 8</span>
-  </button>
+  <div class="nav-group">
+    <span class="nav-group-label">🇺🇸 美國</span>
+    <div class="nav-group-btns">
+      <button class="step-btn active" onclick="showStep(0)">
+        <span class="btn-icon">📋</span>
+        <span class="btn-label">Step 1</span>
+      </button>
+      <button class="step-btn" onclick="showStep(1)">
+        <span class="btn-icon">📸</span>
+        <span class="btn-label">Step 2</span>
+      </button>
+      <button class="step-btn" onclick="showStep(2)">
+        <span class="btn-icon">🇺🇸</span>
+        <span class="btn-label">Step 3</span>
+      </button>
+    </div>
+  </div>
+  <div class="nav-group">
+    <span class="nav-group-label tw">🇹🇼 台灣</span>
+    <div class="nav-group-btns">
+      <button class="step-btn" onclick="showStep(3)">
+        <span class="btn-icon">📄</span>
+        <span class="btn-label">Step 5</span>
+      </button>
+      <button class="step-btn" onclick="showStep(4)">
+        <span class="btn-icon">✉️</span>
+        <span class="btn-label">Step 6</span>
+      </button>
+      <button class="step-btn" onclick="showStep(5)">
+        <span class="btn-icon">🏛️</span>
+        <span class="btn-label">Step 7</span>
+      </button>
+      <button class="step-btn" onclick="showStep(6)">
+        <span class="btn-icon">🛂</span>
+        <span class="btn-label">Step 8</span>
+      </button>
+    </div>
+  </div>
 </div>
 
 <div class="content-wrap">
   <div class="card">
-    <!-- STEP 5 -->
+    <!-- STEP 1 -->
     <div class="step-content active" id="step-0">
       <div class="card-header">
-        <span class="ch-icon">📄</span>
+        <span class="ch-icon">📋</span>
         <div>
-          <h2>Step 5：辦理定居證</h2>
-          <p class="ch-sub">移民署申請</p>
+          <h2>Step 1：取得美國出生證明</h2>
+          <p class="ch-sub">County Office 申辦</p>
         </div>
       </div>
 
       <p class="section-note">
-        拿到 TECO 認證文件後，用美國護照飛回台灣。一下飛機當天就可以去移民署申請定居證。<strong>小孩不用帶去。</strong>
+        寶寶出生時，醫院會協助辦理出生登記和 SSN。<strong>最好在生之前就取好名字！</strong>生產隔天 Birth Recorder 會來確認寶寶姓名、父母姓名。
       </p>
 
-      <h3 class="sub-heading">準備文件清單</h3>
-      <div class="checklist">
-        <div class="check-item"><span class="check-box">✓</span><div>定居申請書</div></div>
-        <div class="check-item"><span class="check-box">✓</span><div>寶寶兩寸照片 ×1</div></div>
-        <div class="check-item"><span class="check-box">✓</span><div>TECO 認證之出生證明＋翻譯正本＋影本<div class="check-warn">⚠️ 影本要印「認證後」版本，要看得到認證章</div></div></div>
-        <div class="check-item"><span class="check-box">✓</span><div>TECO 認證之疫苗黃卡正本＋影本<div class="check-warn">⚠️ 同上，要印認證後版本</div></div></div>
-        <div class="check-item"><span class="check-box">✓</span><div>小孩美國護照正本＋影本</div></div>
-        <div class="check-item"><span class="check-box">✓</span><div>父母雙方台灣護照正本＋影本</div></div>
-        <div class="check-item"><span class="check-box">✓</span><div>父母戶口名簿正本＋影本</div></div>
-        <div class="check-item"><span class="check-box">✓</span><div>父母定居同意書</div></div>
-        <div class="check-item"><span class="check-box">✓</span><div>規費 NT$600</div></div>
+      <div class="critical-box">
+        <div class="crit-title">⚠️ 一定要仔細檢查、看清楚再簽名！</div>
+        <div class="crit-body">
+          名字拼錯事後修改非常麻煩，確認所有資訊無誤後再簽。
+        </div>
+      </div>
+
+      <h3 class="sub-heading">申請出生證明</h3>
+      <div class="warn-box">
+        <div class="warn-item"><span class="warn-dot">●</span> SSN 會自動寄到家，但出生證明<strong>不會</strong>自己寄來</div>
+        <div class="warn-item"><span class="warn-dot">●</span> 要本人親自去 County Office 申辦，或郵寄申辦（需 Notary 公證）</div>
+        <div class="warn-item"><span class="warn-dot">●</span> 寶寶出生 <strong>四週後</strong> County Office 才會有資料</div>
+        <div class="warn-item"><span class="warn-dot">●</span> 出發前先打電話確認資料有沒有入檔，才不會白跑一趟</div>
       </div>
 
       <div class="tip-box">
-        <div class="tip-title">💡 台北辦理小提醒</div>
-        <div class="tip-body">現場有影印機（NT$2/張），但建議在家把所有影本準備好。其他縣市據說可掛號寄到家，但 2025 年台北需親領，email 通知後約 7 個工作天。</div>
+        <div class="tip-title">💡 建議一次申請三張</div>
+        <div class="tip-body">一張辦美國護照、一張拿去 TECO 認證、一張備用保存。</div>
+      </div>
+
+      <div class="tip-box">
+        <div class="tip-title">💡 2024/11 補充</div>
+        <div class="tip-body">有龍寶媽在 El Camino 醫院生產，醫院有提供公證人在院內收費公證出生證明申請表，就可以用郵寄方式申請出生證明！</div>
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="step-content" id="step-1">
+      <div class="card-header">
+        <span class="ch-icon">📸</span>
+        <div>
+          <h2>Step 2：準備證件照</h2>
+          <p class="ch-sub">一次洗好所有需要的照片</p>
+        </div>
+      </div>
+
+      <p class="section-note">
+        幫寶寶辦美國護照時就需要照片，這時候可以順便把所有需要的照片一次搞定。
+      </p>
+
+      <h3 class="sub-heading">需要準備的照片</h3>
+      <div class="checklist">
+        <div class="check-item"><span class="check-box">✓</span><div>美國護照用照片</div></div>
+        <div class="check-item"><span class="check-box">✓</span><div>台灣護照用兩寸照片 ×2</div></div>
+        <div class="check-item"><span class="check-box">✓</span><div>定居證用兩寸照片 ×1</div></div>
+      </div>
+
+      <div class="tip-box">
+        <div class="tip-title">📐 台灣護照照片規格</div>
+        <div class="tip-body">台灣護照照片規格與美國不同，請參考外交部網站的規格說明。建議在美國一起洗好，省得回台灣再跑一趟。</div>
+      </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="step-content" id="step-2">
+      <div class="card-header">
+        <span class="ch-icon">🇺🇸</span>
+        <div>
+          <h2>Step 3：辦理美國護照</h2>
+          <p class="ch-sub">先搶面試時間！</p>
+        </div>
+      </div>
+
+      <div class="critical-box">
+        <div class="crit-title">⚠️ 為什麼不在美國辦台灣護照？</div>
+        <div class="crit-body">
+          <p style="margin:0;line-height:1.7">小孩還沒有身分證字號，台灣護照有效期只有一年，且每次回台前還要先辦臨人字，非常麻煩。現在美國護照回台灣已免簽，直接拿美國護照回去就好！</p>
+        </div>
+      </div>
+
+      <div class="warn-box" style="margin-top:16px">
+        <div class="warn-item"><span class="warn-dot">●</span> <strong>先搶面試 appointment！</strong>沒有預約什麼都免談</div>
+        <div class="warn-item"><span class="warn-dot">●</span> 未成年孩童辦護照：<strong>父母雙方＋小孩都要到場</strong></div>
+        <div class="warn-item"><span class="warn-dot">●</span> 一方無法出席需找 Notary 公證授權書</div>
+      </div>
+
+      <h3 class="sub-heading">辦理所需資料</h3>
+      <div class="checklist">
+        <div class="check-item"><span class="check-box">✓</span><div>預約面試時間<div class="check-warn">⚠️ 2025.01 註：Santa Clara County Office 已不提供此業務，改去可辦理的郵局或圖書館</div></div></div>
+        <div class="check-item"><span class="check-box">✓</span><div>線上填表並印出來（也可現場填）</div></div>
+        <div class="check-item"><span class="check-box">✓</span><div>小孩出生證明正本 + 影本<div class="check-warn">⚠️ 正本會被收走，之後會跟護照分開寄回</div></div></div>
+        <div class="check-item"><span class="check-box">✓</span><div>父母雙方身分證明文件正本 + 影本（綠卡、駕照或護照）</div></div>
+        <div class="check-item"><span class="check-box">✓</span><div>護照照片</div></div>
+      </div>
+
+      <div class="tip-box">
+        <div class="tip-title">💡 2025 經驗分享</div>
+        <div class="tip-body">幫弟弟辦美國護照時忘記先搶 appointment，但找到一家有 walk-in 時段的郵局，很幸運地成功辦理！</div>
+      </div>
+    </div>
+
+    <!-- STEP 5 -->
+    <div class="step-content" id="step-3">
+      <div class="card-header">
+        <span class="ch-icon">📄</span>
+        <div>
+          <h2>Step 5：辦理定居證</h2>
+          <p class="ch-sub">兩種方式擇一</p>
+        </div>
+      </div>
+
+      <div class="option-card">
+        <div class="option-header">
+          <span class="option-num">1</span>
+          <span class="option-title">在台灣申辦定居證</span>
+        </div>
+        <p style="margin:0 0 12px;line-height:1.7;font-size:15px;">
+          如果回台灣時間充裕，在美國只需要完成最基本的事項，回台灣再辦定居證。抵台後等待約 <strong>7 個工作天</strong>。
+        </p>
+
+        <h3 class="sub-heading">在美國至少要完成</h3>
+        <div class="checklist">
+          <div class="check-item"><span class="check-box">✓</span><div>小孩英文出生證明送 TECO 驗證</div></div>
+          <div class="check-item"><span class="check-box">✓</span><div>辦理小孩美國護照</div></div>
+        </div>
+
+        <h3 class="sub-heading">可在美國 or 台灣處理的項目</h3>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:16px">
+          <div class="form-tag">
+            <span class="form-num" style="font-size:14px">📝</span>
+            <div>
+              <div class="form-text">出生證明中譯本</div>
+              <div class="form-note">在美國：給 TECO 驗證<br>在台灣：拿去法院或代書公證</div>
+            </div>
+          </div>
+          <div class="form-tag">
+            <span class="form-num" style="font-size:14px">💉</span>
+            <div>
+              <div class="form-text">疫苗紀錄</div>
+              <div class="form-note">在美國：疫苗黃卡給 TECO 驗證<br>在台灣：疫苗卡去衛生所換寶寶健康手冊即可</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tip-box" style="margin-top:8px">
+          <div class="tip-title">💡 2024/11 補充</div>
+          <div class="tip-body">有媽媽分享：可聯絡戶籍地衛生所，透過 LINE 傳送疫苗卡，在小孩還沒入籍的情況下領到寶寶健康手冊。但不是每個區都可以，要先詢問！</div>
+        </div>
+
+        <h3 class="sub-heading">抵台後申請定居證準備文件</h3>
+        <div class="checklist">
+          <div class="check-item"><span class="check-box">✓</span><div>定居申請書</div></div>
+          <div class="check-item"><span class="check-box">✓</span><div>寶寶兩寸照片 ×1</div></div>
+          <div class="check-item"><span class="check-box">✓</span><div>TECO 認證之出生證明＋翻譯正本＋影本<div class="check-warn">⚠️ 影本要印「認證後」版本，要看得到認證章</div></div></div>
+          <div class="check-item"><span class="check-box">✓</span><div>TECO 認證之疫苗黃卡正本＋影本<div class="check-warn">⚠️ 同上，要印認證後版本</div></div></div>
+          <div class="check-item"><span class="check-box">✓</span><div>小孩美國護照正本＋影本</div></div>
+          <div class="check-item"><span class="check-box">✓</span><div>父母雙方台灣護照正本＋影本</div></div>
+          <div class="check-item"><span class="check-box">✓</span><div>父母戶口名簿正本＋影本</div></div>
+          <div class="check-item"><span class="check-box">✓</span><div>父母定居同意書</div></div>
+          <div class="check-item"><span class="check-box">✓</span><div>規費 NT$600</div></div>
+        </div>
+
+        <div class="tip-box">
+          <div class="tip-title">💡 台北辦理小提醒</div>
+          <div class="tip-body">現場有影印機（NT$2/張），但建議在家把所有影本準備好。其他縣市據說可掛號寄到家，但 2025 年台北需親領，email 通知後約 7 個工作天。</div>
+        </div>
+      </div>
+
+      <div class="option-card">
+        <div class="option-header">
+          <span class="option-num">2</span>
+          <span class="option-title">在美國申辦定居證副本</span>
+        </div>
+        <p style="margin:0 0 12px;line-height:1.7;font-size:15px;">
+          想最大化在美國完成的手續，可在 TECO 申辦定居證副本。抵台後拿副本到移民署換正本，等待只要 <strong>3 個工作天</strong>。
+        </p>
+
+        <div class="warn-box">
+          <div class="warn-item"><span class="warn-dot">●</span> 需預約、親自跑一趟 TECO</div>
+          <div class="warn-item"><span class="warn-dot">●</span> 必須帶小孩的美國護照</div>
+          <div class="warn-item"><span class="warn-dot">●</span> 送件後有額外等待時間</div>
+        </div>
+
+        <div class="tip-box" style="margin-top:8px">
+          <div class="tip-title">🎯 建議</div>
+          <div class="tip-body">小孩六個月大以後才有要回台灣者，再來考慮這個選項。如果回台時間本來就充裕，Option 1 比較省事。</div>
+        </div>
+      </div>
+
+      <!-- Comparison -->
+      <div style="background:var(--bg-sub);border-radius:12px;padding:16px;margin-top:8px">
+        <div style="font-weight:800;font-size:14px;margin-bottom:10px;color:var(--text-primary)">📊 兩個選項快速比較</div>
+        <table style="width:100%;border-collapse:collapse;font-size:13px;line-height:1.6">
+          <tr style="border-bottom:1px solid var(--border)">
+            <td style="padding:6px 8px;font-weight:700;color:var(--text-muted)"></td>
+            <td style="padding:6px 8px;font-weight:700;color:var(--accent);text-align:center">Option 1<br>在台灣辦</td>
+            <td style="padding:6px 8px;font-weight:700;color:var(--warn);text-align:center">Option 2<br>在美國辦副本</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border)">
+            <td style="padding:6px 8px;font-weight:600">在美國要跑 TECO</td>
+            <td style="padding:6px 8px;text-align:center">1 次（驗證）</td>
+            <td style="padding:6px 8px;text-align:center">2 次以上</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border)">
+            <td style="padding:6px 8px;font-weight:600">抵台後等待時間</td>
+            <td style="padding:6px 8px;text-align:center">~7 工作天</td>
+            <td style="padding:6px 8px;text-align:center">~3 工作天</td>
+          </tr>
+          <tr>
+            <td style="padding:6px 8px;font-weight:600">適合對象</td>
+            <td style="padding:6px 8px;text-align:center">時間充裕</td>
+            <td style="padding:6px 8px;text-align:center">寶寶 6 個月+</td>
+          </tr>
+        </table>
       </div>
     </div>
 
     <!-- STEP 6 -->
-    <div class="step-content" id="step-1">
+    <div class="step-content" id="step-4">
       <div class="card-header">
         <span class="ch-icon">✉️</span>
         <div>
@@ -376,8 +608,9 @@
       <div class="option-card">
         <div class="option-header">
           <span class="option-num">1</span>
-          <span class="option-title">等 email 通知後親領（2025 新增）</span>
+          <span class="option-title">等 email 通知後親領</span>
         </div>
+        <p style="margin:0 0 4px;line-height:1.7;font-size:13px;color:var(--text-muted);">對應 Step 5 Option 1（在台灣申辦定居證）</p>
         <p style="margin:0 0 12px;line-height:1.7;font-size:15px;">約一週後收到移民署 email，攜帶以下物品前往領取：</p>
         <div class="checklist">
           <div class="check-item"><span class="check-box">✓</span><div>收據</div></div>
@@ -395,6 +628,7 @@
           <span class="option-num">2</span>
           <span class="option-title">拿副本到移民署換正本</span>
         </div>
+        <p style="margin:0 0 4px;line-height:1.7;font-size:13px;color:var(--text-muted);">對應 Step 5 Option 2（在美國申辦定居證副本）</p>
         <p style="margin:0;line-height:1.7;font-size:15px;">
           帶著定居證副本去移民署換正本。<strong>小孩不用到場</strong>，爸媽其中一人去即可，等待約 <strong>3 個工作天</strong>。
         </p>
@@ -402,7 +636,7 @@
     </div>
 
     <!-- STEP 7 -->
-    <div class="step-content" id="step-2">
+    <div class="step-content" id="step-5">
       <div class="card-header">
         <span class="ch-icon">🏛️</span>
         <div>
@@ -464,7 +698,7 @@
     </div>
 
     <!-- STEP 8 -->
-    <div class="step-content" id="step-3">
+    <div class="step-content" id="step-6">
       <div class="card-header">
         <span class="ch-icon">🛂</span>
         <div>
