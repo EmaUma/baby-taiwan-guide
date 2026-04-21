@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>美國出生寶寶入籍台灣 — 完整流程指南</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --accent: #3d7c6b;
+    --accent-muted: #e0f0eb;
+    --bg: #faf9f6;
+    --bg-card: #ffffff;
+    --bg-sub: #f3f1ed;
+    --border: #e5e1da;
+    --text-primary: #2c2a26;
+    --text-secondary: #5a5750;
+    --text-muted: #8a857c;
+    --tip-bg: #eef6f2;
+    --tip-border: #c8dfd6;
+    --tip-title: #2d6b5a;
+    --warn: #c47a2a;
+    --warn-bg: #fdf5ec;
+    --critical-bg: #fdf0ee;
+    --critical-border: #e8a49a;
+    --critical-title: #b5453a;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Noto Sans TC', 'Helvetica Neue', sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    min-height: 100vh;
+    padding-bottom: 60px;
+    -webkit-text-size-adjust: 100%;
+  }
+  .header {
+    background: linear-gradient(135deg, #3d7c6b 0%, #2a5c4e 100%);
+    color: #fff;
+    padding: 36px 24px 28px;
+    text-align: center;
+  }
+  .header-icon { font-size: 32px; margin-bottom: 6px; }
+  .header h1 { font-size: 22px; font-weight: 900; margin: 0 0 6px; letter-spacing: 0.02em; }
+  .header p { font-size: 14px; opacity: 0.8; margin: 0; }
+
+  .step-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 0 16px;
+    margin-top: -18px;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .nav-group {
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+  .nav-group-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+    background: var(--accent);
+    padding: 4px 8px;
+    border-radius: 6px;
+    white-space: nowrap;
+    min-width: 52px;
+    text-align: center;
+    margin-right: 6px;
+  }
+  .nav-group-label.tw { background: #c4574b; }
+  .nav-group-btns { display: flex; flex: 1; gap: 0; }
+  .step-btn {
+    flex: 1;
+    max-width: 90px;
+    background: rgba(255,255,255,0.85);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 4px 10px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    transition: all 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    margin: 0 4px;
+    font-family: inherit;
+  }
+  .step-btn.active {
+    background: #fff;
+    border: 2px solid var(--accent);
+    transform: scale(1.05);
+    box-shadow: 0 4px 16px rgba(61,124,107,0.18);
+  }
+  .step-btn .btn-icon { font-size: 22px; }
+  .step-btn .btn-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-align: center;
+    line-height: 1.3;
+  }
+  .step-btn.active .btn-label { font-weight: 800; color: var(--accent); }
+
+  .content-wrap {
+    max-width: 560px;
+    margin: 20px auto 0;
+    padding: 0 18px;
+  }
+  .card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px 20px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    border: 1px solid var(--border);
+  }
+  .card + .card { margin-top: 28px; }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--accent-muted);
+  }
+  .card-header .ch-icon { font-size: 34px; }
+  .card-header h2 { margin: 0; font-size: 20px; font-weight: 900; }
+  .card-header .ch-sub { margin: 2px 0 0; font-size: 13px; color: var(--text-muted); }
+
+  .step-content { display: none; }
+  .step-content.active { display: block; }
+
+  .section-note {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin: 0 0 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px dashed var(--border);
+  }
+
+  .sub-heading {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    margin: 24px 0 12px;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .sub-heading::before {
+    content: '';
+    width: 20px; height: 2px;
+    background: var(--accent);
+    border-radius: 1px;
+    display: inline-block;
+  }
+
+  .checklist { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+  .check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .check-box {
+    width: 20px; height: 20px; min-width: 20px;
+    border-radius: 5px;
+    border: 2px solid var(--accent-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+    font-size: 10px;
+    color: var(--accent);
+  }
+  .check-warn { color: var(--warn); font-size: 13px; margin-top: 2px; }
+  .check-note { color: var(--text-muted); font-size: 13px; margin-top: 2px; }
+
+  .tip-box {
+    background: var(--tip-bg);
+    border: 1px solid var(--tip-border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-top: 16px;
+    margin-bottom: 8px;
+  }
+  .tip-box .tip-title { font-weight: 700; font-size: 14px; color: var(--tip-title); margin-bottom: 6px; }
+  .tip-box .tip-body { font-size: 14px; line-height: 1.7; color: var(--text-secondary); }
+
+  .critical-box {
+    background: var(--critical-bg);
+    border: 2px solid var(--critical-border);
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-top: 20px;
+    margin-bottom: 8px;
+  }
+  .critical-box .crit-title { font-weight: 800; font-size: 15px; margin-bottom: 10px; color: var(--critical-title); }
+  .critical-box .crit-body { font-size: 14px; line-height: 1.7; }
+  .crit-compare {
+    background: var(--bg-sub);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 14px;
+    line-height: 1.7;
+    font-family: monospace;
+    margin-top: 8px;
+  }
+  .crit-compare .muted { opacity: 0.5; }
+  .crit-compare .rescue { margin-top: 6px; opacity: 0.6; font-size: 13px; }
+
+  .warn-box {
+    background: var(--warn-bg);
+    border-left: 4px solid var(--warn);
+    border-radius: 0 10px 10px 0;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .warn-item { font-size: 14px; line-height: 1.6; display: flex; gap: 8px; }
+  .warn-dot { color: var(--warn); }
+
+  .option-card {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+    margin-bottom: 12px;
+    background: var(--bg-card);
+  }
+  .option-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+  .option-num {
+    background: var(--accent);
+    color: #fff;
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .option-title { font-weight: 700; font-size: 15px; }
+
+  .form-tag {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    margin-bottom: 8px;
+  }
+  .form-num {
+    background: var(--accent-muted);
+    color: var(--accent);
+    font-weight: 800;
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    min-width: 20px;
+    text-align: center;
+  }
+  .form-text { font-size: 14px; font-weight: 600; }
+  .form-note { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+
+  /* Timeline */
+  .tl-year-badge {
+    display: inline-block;
+    color: #fff;
+    padding: 3px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 800;
+    margin-bottom: 10px;
+  }
+  .tl-track {
+    display: flex;
+    flex-direction: column;
+    padding-left: 14px;
+    border-left: 3px solid;
+  }
+  .tl-event {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 6px 0;
+    position: relative;
+  }
+  .tl-dot {
+    position: absolute;
+    left: -20px;
+    top: 12px;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+  }
+  .tl-day { font-size: 12px; font-weight: 700; min-width: 56px; padding-top: 1px; }
+  .tl-text { font-size: 14px; color: var(--text-secondary); line-height: 1.5; }
+
+  .timeline-title {
+    font-size: 17px;
+    font-weight: 900;
+    margin: 0 0 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .tl-group + .tl-group { margin-top: 20px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-icon">🍼</div>
+  <h1>美國出生寶寶入籍台灣</h1>
+  <p>Step 1 – 8 完整流程指南</p>
+</div>
+
+<div class="step-nav">
+  <div class="nav-group">
+    <span class="nav-group-label">🇺🇸 美國</span>
+    <div class="nav-group-btns">
+      <button class="step-btn active" onclick="showStep(0)">
+        <span class="btn-icon">📋</span>
+        <span class="btn-label">Step 1</span>
+      </button>
+      <button class="step-btn" onclick="showStep(1)">
+        <span class="btn-icon">📸</span>
+        <span class="btn-label">Step 2</span>
+      </button>
+      <button class="step-btn" onclick="showStep(2)">
+        <span class="btn-icon">🇺🇸</span>
+        <span class="btn-label">Step 3</span>
+      </button>
+    </div>
+  </div>
+  <div class="nav-group">
+    <span class="nav-group-label tw">🇹🇼 台灣</span>
+    <div class="nav-group-btns">
+      <button class="step-btn" onclick="showStep(3)">
+        <span class="btn-icon">📄</span>
+        <span class="btn-label">Step 5</span>
+      </button>
+      <button class="step-btn" onclick="showStep(4)">
+        <span class="btn-icon">✉️</span>
+        <span class="btn-label">Step 6</span>
+      </button>
+      <button class="step-btn" onclick="showStep(5)">
+        <span class="btn-icon">🏛️</span>
+        <span class="btn-label">Step 7</span>
+      </button>
+      <button class="step-btn" onclick="showStep(6)">
+        <span class="btn-icon">🛂</span>
+        <span class="btn-label">Step 8</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="content-wrap">
+  <div class="card">
+    <!-- STEP 1 -->
+    <div class="step-content active" id="step-0">
+      <div class="card-header">
+        <span class="ch-icon">📋</span>
+        <div>
+          <h2>Step 1：取得美國出生證明</h2>
+          <p class="ch-sub">County Office 申辦</p>
+        </div>
+      </div>
+
+      <p class="section-note">
+        寶寶出生時，醫院會協助辦理出生登記和 SSN。<strong>最好在生之前就取好名字！</strong>生產隔天 Birth Recorder 會來確認寶寶姓名、父母姓名。
+      </p>
+
+      <div class="critical-box">
+        <div class="crit-title">⚠️ 一定要仔細檢查、看清楚再簽名！</div>
+        <div class="crit-body">
+          名字拼錯事後修改非常麻煩，確認所有資訊無誤後再簽。
+        </div>
+      </div>
+
+      <h3 class="sub-heading">申請出生證明</h3>
+      <div class="warn-box">
+        <div class="warn-item"><span class="warn-dot">●</span> SSN 會自動寄到家，但出生證明<strong>不會</strong>自己寄來</div>
+        <div class="warn-item"><span class="warn-dot">●</span> 要本人親自去 County Office 申辦，或郵寄申辦（需 Notary 公證）</div>
+        <div class="warn-item"><span class="warn-dot">●</span> 寶寶出生 <strong>四週後</strong> County Office 才會有資料</div>
+        <div class="warn-item"><span class="warn-dot">●</span> 出發前先打電話確認資料有沒有入檔，才不會白跑一趟</div>
+      </div>
+
+      <div class="tip-box">
+        <div class="tip-title">💡 建議一次申請三張</div>
+        <div class="tip-body">一張辦美國護照、一張拿去 TECO 認證、一張備用保存。</div>
+      </div>
+
+      <div class="tip-box">
+        <div class="tip-title">💡 2024/11 補充</div>
+        <div class="tip-body">有龍寶媽在 El Camino 醫院生產，醫院有提供公證人在院內收費公證出生證明申請表，就可以用郵寄方式申請出生證明！</div>
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="step-content" id="step-1">
+      <div class="card-header">
+        <span class="ch-icon">📸</span>
+        <div>
+          <h2>Step 2：準備證件照</h2>
+          <p class="ch-sub">一次洗好所有需要的照片</p>
+        </div>
+      </div>
+
+      <p class="section-note">
+        幫寶寶辦美國護照時就需要照片，這時候可以順便把所有需要的照片一次搞定。
+      </p>
+
+      <h3 class="sub-heading">需要準備的照片</h3>
+      <div class="checklist">
+        <div class="check-item"><span class="check-box">✓</span><div>美國護照用照片</div></div>
+        <div class="check-item"><span class="check-box">✓</span><div>台灣護照用兩寸照片 ×2</div></div>
+        <div class="check-item"><span class="check-box">✓</span><div>定居證用兩寸照片 ×1</div></div>
+      </div>
+
+      <div class="tip-box">
+        <div class="tip-title">📐 台灣護照照片規格</div>
+        <div class="tip-body">台灣護照照片規格與美國不同，請參考外交部網站的規格說明。建議在美國一起洗好，省得回台灣再跑一趟。</div>
+      </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="step-content" id="step-2">
+      <div class="card-header">
+        <span class="ch-icon">🇺🇸</span>
+        <div>
+          <h2>Step 3：辦理美國護照</h2>
+          <p class="ch-sub">先搶面試時間！</p>
+        </div>
+      </div>
+
+      <div class="critical-box">
+        <div class="crit-title">⚠️ 為什麼不在美國辦台灣護照？</div>
+        <div class="crit-body">
+          <p style="margin:0;line-height:1.7">小孩還沒有身分證字號，台灣護照有效期只有一年，且每次回台前還要先辦臨人字，非常麻煩。現在美國護照回台灣已免簽，直接拿美國護照回去就好！</p>
+        </div>
+      </div>
+
+      <div class="warn-box" style="margin-top:16px">
+        <div class="warn-item"><span class="warn-dot">●</span> <strong>先搶面試 appointment！</strong>沒有預約什麼都免談</div>
+        <div class="warn-item"><span class="warn-dot">●</span> 未成年孩童辦護照：<strong>父母雙方＋小孩都要到場</strong></div>
+        <div class="warn-item"><span class="warn-dot">●</span> 一方無法出席需找 Notary 公證授權書</div>
+      </div>
+
+      <h3 class="sub-heading">辦理所需資料</h3>
+      <div class="checklist">
+        <div class="check-item"><span class="check-box">✓</span><div>預約面試時間<div class="check-warn">⚠️ 2025.01 註：Santa Clara County Office 已不提供此業務，改去可辦理的郵局或圖書館</div></div></div>
+        <div class="check-item"><span class="check-box">✓</span><div>線上填表並印出來（也可現場填）</div></div>
+        <div class="check-item"><span class="check-box">✓</span><div>小孩出生證明正本 + 影本<div class="check-warn">⚠️ 正本會被收走，之後會跟護照分開寄回</div></div></div>
+        <div class="check-item"><span class="check-box">✓</span><div>父母雙方身分證明文件正本 + 影本（綠卡、駕照或護照）</div></div>
+        <div class="check-item"><span class="check-box">✓</span><div>護照照片</div></div>
+      </div>
+
+      <div class="tip-box">
+        <div class="tip-title">💡 2025 經驗分享</div>
+        <div class="tip-body">幫弟弟辦美國護照時忘記先搶 appointment，但找到一家有 walk-in 時段的郵局，很幸運地成功辦理！</div>
+      </div>
+    </div>
+
+    <!-- STEP 5 -->
+    <div class="step-content" id="step-3">
+      <div class="card-header">
+        <span class="ch-icon">📄</span>
+        <div>
+          <h2>Step 5：辦理定居證</h2>
+          <p class="ch-sub">兩種方式擇一</p>
+        </div>
+      </div>
+
+      <div class="option-card">
+        <div class="option-header">
+          <span class="option-num">1</span>
+          <span class="option-title">在台灣申辦定居證</span>
+        </div>
+        <p style="margin:0 0 12px;line-height:1.7;font-size:15px;">
+          如果回台灣時間充裕，在美國只需要完成最基本的事項，回台灣再辦定居證。抵台後等待約 <strong>7 個工作天</strong>。
+        </p>
+
+        <h3 class="sub-heading">在美國至少要完成</h3>
+        <div class="checklist">
+          <div class="check-item"><span class="check-box">✓</span><div>小孩英文出生證明送 TECO 驗證</div></div>
+          <div class="check-item"><span class="check-box">✓</span><div>辦理小孩美國護照</div></div>
+        </div>
+
+        <h3 class="sub-heading">可在美國 or 台灣處理的項目</h3>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:16px">
+          <div class="form-tag">
+            <span class="form-num" style="font-size:14px">📝</span>
+            <div>
+              <div class="form-text">出生證明中譯本</div>
+              <div class="form-note">在美國：給 TECO 驗證<br>在台灣：拿去法院或代書公證</div>
+            </div>
+          </div>
+          <div class="form-tag">
+            <span class="form-num" style="font-size:14px">💉</span>
+            <div>
+              <div class="form-text">疫苗紀錄</div>
+              <div class="form-note">在美國：疫苗黃卡給 TECO 驗證<br>在台灣：疫苗卡去衛生所換寶寶健康手冊即可</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tip-box" style="margin-top:8px">
+          <div class="tip-title">💡 2024/11 補充</div>
+          <div class="tip-body">有媽媽分享：可聯絡戶籍地衛生所，透過 LINE 傳送疫苗卡，在小孩還沒入籍的情況下領到寶寶健康手冊。但不是每個區都可以，要先詢問！</div>
+        </div>
+
+        <h3 class="sub-heading">抵台後申請定居證準備文件</h3>
+        <div class="checklist">
+          <div class="check-item"><span class="check-box">✓</span><div>定居申請書</div></div>
+          <div class="check-item"><span class="check-box">✓</span><div>寶寶兩寸照片 ×1</div></div>
+          <div class="check-item"><span class="check-box">✓</span><div>TECO 認證之出生證明＋翻譯正本＋影本<div class="check-warn">⚠️ 影本要印「認證後」版本，要看得到認證章</div></div></div>
+          <div class="check-item"><span class="check-box">✓</span><div>TECO 認證之疫苗黃卡正本＋影本<div class="check-warn">⚠️ 同上，要印認證後版本</div></div></div>
+          <div class="check-item"><span class="check-box">✓</span><div>小孩美國護照正本＋影本</div></div>
+          <div class="check-item"><span class="check-box">✓</span><div>父母雙方台灣護照正本＋影本</div></div>
+          <div class="check-item"><span class="check-box">✓</span><div>父母戶口名簿正本＋影本</div></div>
+          <div class="check-item"><span class="check-box">✓</span><div>父母定居同意書</div></div>
+          <div class="check-item"><span class="check-box">✓</span><div>規費 NT$600</div></div>
+        </div>
+
+        <div class="tip-box">
+          <div class="tip-title">💡 台北辦理小提醒</div>
+          <div class="tip-body">現場有影印機（NT$2/張），但建議在家把所有影本準備好。其他縣市據說可掛號寄到家，但 2025 年台北需親領，email 通知後約 7 個工作天。</div>
+        </div>
+      </div>
+
+      <div class="option-card">
+        <div class="option-header">
+          <span class="option-num">2</span>
+          <span class="option-title">在美國申辦定居證副本</span>
+        </div>
+        <p style="margin:0 0 12px;line-height:1.7;font-size:15px;">
+          想最大化在美國完成的手續，可在 TECO 申辦定居證副本。抵台後拿副本到移民署換正本，等待只要 <strong>3 個工作天</strong>。
+        </p>
+
+        <div class="warn-box">
+          <div class="warn-item"><span class="warn-dot">●</span> 需預約、親自跑一趟 TECO</div>
+          <div class="warn-item"><span class="warn-dot">●</span> 必須帶小孩的美國護照</div>
+          <div class="warn-item"><span class="warn-dot">●</span> 送件後有額外等待時間</div>
+        </div>
+
+        <div class="tip-box" style="margin-top:8px">
+          <div class="tip-title">🎯 建議</div>
+          <div class="tip-body">小孩六個月大以後才有要回台灣者，再來考慮這個選項。如果回台時間本來就充裕，Option 1 比較省事。</div>
+        </div>
+      </div>
+
+      <!-- Comparison -->
+      <div style="background:var(--bg-sub);border-radius:12px;padding:16px;margin-top:8px">
+        <div style="font-weight:800;font-size:14px;margin-bottom:10px;color:var(--text-primary)">📊 兩個選項快速比較</div>
+        <table style="width:100%;border-collapse:collapse;font-size:13px;line-height:1.6">
+          <tr style="border-bottom:1px solid var(--border)">
+            <td style="padding:6px 8px;font-weight:700;color:var(--text-muted)"></td>
+            <td style="padding:6px 8px;font-weight:700;color:var(--accent);text-align:center">Option 1<br>在台灣辦</td>
+            <td style="padding:6px 8px;font-weight:700;color:var(--warn);text-align:center">Option 2<br>在美國辦副本</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border)">
+            <td style="padding:6px 8px;font-weight:600">在美國要跑 TECO</td>
+            <td style="padding:6px 8px;text-align:center">1 次（驗證）</td>
+            <td style="padding:6px 8px;text-align:center">2 次以上</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border)">
+            <td style="padding:6px 8px;font-weight:600">抵台後等待時間</td>
+            <td style="padding:6px 8px;text-align:center">~7 工作天</td>
+            <td style="padding:6px 8px;text-align:center">~3 工作天</td>
+          </tr>
+          <tr>
+            <td style="padding:6px 8px;font-weight:600">適合對象</td>
+            <td style="padding:6px 8px;text-align:center">時間充裕</td>
+            <td style="padding:6px 8px;text-align:center">寶寶 6 個月+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- STEP 6 -->
+    <div class="step-content" id="step-4">
+      <div class="card-header">
+        <span class="ch-icon">✉️</span>
+        <div>
+          <h2>Step 6：領取定居證</h2>
+          <p class="ch-sub">約一週後領取</p>
+        </div>
+      </div>
+
+      <div class="option-card">
+        <div class="option-header">
+          <span class="option-num">1</span>
+          <span class="option-title">等 email 通知後親領</span>
+        </div>
+        <p style="margin:0 0 4px;line-height:1.7;font-size:13px;color:var(--text-muted);">對應 Step 5 Option 1（在台灣申辦定居證）</p>
+        <p style="margin:0 0 12px;line-height:1.7;font-size:15px;">約一週後收到移民署 email，攜帶以下物品前往領取：</p>
+        <div class="checklist">
+          <div class="check-item"><span class="check-box">✓</span><div>收據</div></div>
+          <div class="check-item"><span class="check-box">✓</span><div>寶寶美國護照正本＋影本</div></div>
+          <div class="check-item"><span class="check-box">✓</span><div>領證家長本人身分證</div></div>
+        </div>
+        <div class="tip-box" style="margin-top:8px">
+          <div class="tip-title">📋 注意</div>
+          <div class="tip-body">現場可能要求再影印一份寶寶美國護照影本留底。</div>
+        </div>
+      </div>
+
+      <div class="option-card">
+        <div class="option-header">
+          <span class="option-num">2</span>
+          <span class="option-title">拿副本到移民署換正本</span>
+        </div>
+        <p style="margin:0 0 4px;line-height:1.7;font-size:13px;color:var(--text-muted);">對應 Step 5 Option 2（在美國申辦定居證副本）</p>
+        <p style="margin:0;line-height:1.7;font-size:15px;">
+          帶著定居證副本去移民署換正本。<strong>小孩不用到場</strong>，爸媽其中一人去即可，等待約 <strong>3 個工作天</strong>。
+        </p>
+      </div>
+    </div>
+
+    <!-- STEP 7 -->
+    <div class="step-content" id="step-5">
+      <div class="card-header">
+        <span class="ch-icon">🏛️</span>
+        <div>
+          <h2>Step 7：辦理入籍</h2>
+          <p class="ch-sub">戶政事務所</p>
+        </div>
+      </div>
+
+      <p class="section-note">拿到定居證後立刻去戶政事務所辦入籍。整個過程至少 40–50 分鐘，建議一開門就去。</p>
+
+      <div class="warn-box">
+        <div class="warn-item"><span class="warn-dot">●</span> 寶寶本人一定要到場</div>
+        <div class="warn-item"><span class="warn-dot">●</span> 父母雙方最好都到，若一方沒到需寫同意書</div>
+        <div class="warn-item"><span class="warn-dot">●</span> 準備未到場一方的印章會省事很多</div>
+      </div>
+
+      <h3 class="sub-heading">入籍準備資料</h3>
+      <div class="checklist">
+        <div class="check-item"><span class="check-box">✓</span><div>定居證<div class="check-warn">⚠️ 正本會被收走！想留念請先掃描或拍照</div></div></div>
+        <div class="check-item"><span class="check-box">✓</span><div>父母雙方身分證</div></div>
+        <div class="check-item"><span class="check-box">✓</span><div>戶口名簿</div></div>
+        <div class="check-item"><span class="check-box">✓</span><div>父母印章（尤其未到場方）</div></div>
+        <div class="check-item"><span class="check-box">✓</span><div>小孩美國護照（人別確認對照用）</div></div>
+        <div class="check-item"><span class="check-box">✓</span><div>存摺<div class="check-warn">⚠️ 育兒津貼只收台北富邦或郵局帳戶</div></div></div>
+        <div class="check-item"><span class="check-box">✓</span><div>小孩兩寸照片 ×2</div></div>
+        <div class="check-item"><span class="check-box">✓</span><div>小孩美國疫苗卡 or 寶寶健康手冊</div></div>
+      </div>
+
+      <h3 class="sub-heading">現場需填寫表單</h3>
+      <div class="form-tag">
+        <span class="form-num">1</span>
+        <div><div class="form-text">生育獎勵金申請書</div><div class="form-note">出生 60 天外入籍需額外填專案申請書＋附美國疫苗卡</div></div>
+      </div>
+      <div class="form-tag">
+        <span class="form-num">2</span>
+        <div><div class="form-text">衛福部中央育兒津貼申請</div></div>
+      </div>
+      <div class="form-tag">
+        <span class="form-num">3</span>
+        <div><div class="form-text">簡式護照資料表</div><div class="form-note">一站式辦護照或做人別確認都要填</div></div>
+      </div>
+
+      <div class="critical-box">
+        <div class="crit-title">⚠️ 護照英文名一定要跟美國護照一致</div>
+        <div class="crit-body">
+          <p style="margin:0 0 8px">務必<strong>主動告知</strong>承辦人員護照英文名要與美國護照相同，並提供美國護照影本佐證。</p>
+          <div class="crit-compare">
+            <div><span class="muted">❌ 預設：</span>WANG, XIAO-MING</div>
+            <div><span class="muted">✅ 正確：</span>CHARLIE WANG</div>
+            <div class="rescue">補救：加註 also known as，但能避免就避免</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tip-box">
+        <div class="tip-title">🎯 強烈建議：同時做「人別確認」</div>
+        <div class="tip-body">入籍當下告知要做護照的人別確認，完成後之後辦護照時寶寶就不用到場，非常方便。戶政送件護照無法加急，所以建議只做人別確認，護照另外自己去辦。</div>
+      </div>
+    </div>
+
+    <!-- STEP 8 -->
+    <div class="step-content" id="step-6">
+      <div class="card-header">
+        <span class="ch-icon">🛂</span>
+        <div>
+          <h2>Step 8：辦理台灣護照</h2>
+          <p class="ch-sub">外交部領事事務局</p>
+        </div>
+      </div>
+
+      <p class="section-note">入籍完當天若來得及可直接去辦護照。小孩送回家，一個家長去辦即可。</p>
+
+      <h3 class="sub-heading">準備資料</h3>
+      <div class="checklist">
+        <div class="check-item"><span class="check-box">✓</span><div>簡式護照資料表<div class="check-note">💡 已做人別確認免附</div></div></div>
+        <div class="check-item"><span class="check-box">✓</span><div>護照照片 ×2<div class="check-note">💡 已做人別確認免附</div></div></div>
+        <div class="check-item"><span class="check-box">✓</span><div>戶口名簿正、影本</div></div>
+        <div class="check-item"><span class="check-box">✓</span><div>辦護照家長身分證正本</div></div>
+        <div class="check-item"><span class="check-box">✓</span><div>同意書<div class="check-note">💡 已做人別確認免附</div></div></div>
+        <div class="check-item"><span class="check-box">✓</span><div>現金<div class="check-warn">⚠️ 規費 $900 + 速件（隔天取）$900</div></div></div>
+      </div>
+
+      <div class="tip-box">
+        <div class="tip-title">📅 重要提醒</div>
+        <div class="tip-body">回台灣前就先預約護照辦理！外交部現場未預約隊伍曾排到 200 號以上。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Timeline -->
+  <div class="card">
+    <h2 class="timeline-title">📅 實際時程參考</h2>
+
+    <div class="tl-group">
+      <span class="tl-year-badge" style="background:#5b8def">2023 年</span>
+      <div class="tl-track" style="border-color:#5b8def30">
+        <div class="tl-event"><span class="tl-dot" style="background:#5b8def"></span><span class="tl-day" style="color:#5b8def">週一晚</span><span class="tl-text">抵達台灣</span></div>
+        <div class="tl-event"><span class="tl-dot" style="background:#5b8def"></span><span class="tl-day" style="color:#5b8def">週二</span><span class="tl-text">拿副本換定居證</span></div>
+        <div class="tl-event"><span class="tl-dot" style="background:#5b8def"></span><span class="tl-day" style="color:#5b8def">週五早</span><span class="tl-text">領定居證 → 入籍</span></div>
+        <div class="tl-event"><span class="tl-dot" style="background:#5b8def"></span><span class="tl-day" style="color:#5b8def">週五午</span><span class="tl-text">辦護照</span></div>
+        <div class="tl-event"><span class="tl-dot" style="background:#5b8def"></span><span class="tl-day" style="color:#5b8def">隔週一</span><span class="tl-text">領到護照 ✅</span></div>
+      </div>
+    </div>
+
+    <div class="tl-group">
+      <span class="tl-year-badge" style="background:#e67e5a">2025 年</span>
+      <div class="tl-track" style="border-color:#e67e5a30">
+        <div class="tl-event"><span class="tl-dot" style="background:#e67e5a"></span><span class="tl-day" style="color:#e67e5a">週二晨</span><span class="tl-text">抵達台灣，當天辦定居證</span></div>
+        <div class="tl-event"><span class="tl-dot" style="background:#e67e5a"></span><span class="tl-day" style="color:#e67e5a">隔週二</span><span class="tl-text">email 通知 → 領證 → 入籍</span></div>
+        <div class="tl-event"><span class="tl-dot" style="background:#e67e5a"></span><span class="tl-day" style="color:#e67e5a">當天午</span><span class="tl-text">外交部排到 200 號 😱</span></div>
+        <div class="tl-event"><span class="tl-dot" style="background:#e67e5a"></span><span class="tl-day" style="color:#e67e5a">隔天早</span><span class="tl-text">再去仍排 10 幾號</span></div>
+        <div class="tl-event"><span class="tl-dot" style="background:#e67e5a"></span><span class="tl-day" style="color:#e67e5a"></span><span class="tl-text">建議提前預約 📅</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function showStep(index) {
+  document.querySelectorAll('.step-btn').forEach((btn, i) => {
+    btn.classList.toggle('active', i === index);
+  });
+  document.querySelectorAll('.step-content').forEach((el, i) => {
+    el.classList.toggle('active', i === index);
+  });
+}
+</script>
+
+</body>
+</html>
